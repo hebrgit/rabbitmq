@@ -1,0 +1,26 @@
+server:
+  port: 8000
+spring:
+  application:
+    name: order-provider
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://8.140.168.229:3306/seata_order?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&serverTimezone=Hongkong
+    username: root
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+
+  rabbitmq:
+    username: guest
+    password: guest
+    host: 8.140.168.229
+    port: 5672
+    #开启手动ack，让程序控制MQ的消息重发
+    listener:
+      simple:
+        acknowledge-mode: manual
+    publisher-confirm-type: CORRELATED #消息发送到交换机确认机制，是否确认回调 NONE、CORRELATED,SIMPLE
+    publisher-returns: true #消息发送到交换机确认机制，是否返回回调
+logging:
+  level:
+    root: info

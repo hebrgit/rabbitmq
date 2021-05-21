@@ -1,0 +1,29 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: stock-proivder
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://8.140.168.229:3306/seata_storage?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&serverTimezone=Hongkong
+    username: root
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+
+  rabbitmq:
+    username: guest
+    password: guest
+    host: 8.140.168.229
+    port: 5672
+    #开启手动ack，让程序控制MQ的消息重复
+    listener:
+      simple:
+        acknowledge-mode: manual
+  #      retry:
+  #        enabled: true #开启重试
+  #        max-attempts: 10 #重试10次
+  #        initial-interval: 2000ms #重试间隔2000ms
+
+logging:
+  level:
+    root: info

@@ -1,0 +1,13 @@
+server:
+  port: 8081
+
+spring:
+  rabbitmq:
+    host: 8.140.168.229
+    username: guest
+    password: guest
+    port: 5672
+    listener:
+      direct:
+        retry:
+          enabled: true
